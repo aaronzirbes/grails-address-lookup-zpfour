@@ -1,0 +1,149 @@
+<g:setProvider library="jquery"/>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="layout" content="main" />
+	<title>Address Lookup ZP4 Test Page</title>
+	<g:javascript library="jquery"/>
+	<script type="text/javascript" src="${resource(file:'address-lookup-zp4.js', dir:'js', plugin:'address-lookup-zpfour')}" />
+	<g:addressLookupOnChange />
+	<style type="text/css">
+	  /* CSS to demo styles in the provided tags */
+	  .fancyButton {
+		color: #8C1919;
+		border-color: #8C1919;
+		background-color: #FC3;
+		-moz-border-radius: 0.5em;
+		-webkit-border-radius: 0.5em;
+	  }
+
+	  .fancyButton:active {
+		color: #FC3;
+		border-color: #8C1919;
+		background-color: #8C1919;
+		-moz-border-radius: 0.5em;
+		-webkit-border-radius: 0.5em;
+	  }
+	</style>
+  </head>
+  <body>
+  <g:form action="find" method="get">
+	<div class="nav">
+	  <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
+	</div>
+  </g:form>
+  <div class="body">
+	<g:if test="${flash.message}">
+	  <div class="message">${flash.message}</div>
+	</g:if>
+
+	<h1>Address Lookup Demo Page</h1>
+
+	<form name="lookupAddress" method="post" action="test">
+	  <div class="dialog">
+		<fieldset>
+		  <legend>Street</legend>
+		  <div class="prop">
+			<label class="name" for="address"><g:message code="addressLookup.enable.label" default="Enable Address Lookup" /></label>
+			<br/>
+			<span class="value">
+			  <input type="checkbox" name="allowAddressLookup" id="allowAddressLookup" checked="checked" />
+			</span>
+		  </div>
+		  <br/>
+
+		  <div class="prop">
+			<label class="name" for="address"><g:message code="streetAddress.address.label" default="Address" /></label>
+			<br/>
+			<span class="value">
+			  <g:textField name="address" size="40" maxlength="64" value="${streetAddressInstance?.address}" />
+			</span>
+		  </div>
+		  <br/>
+
+		  <div class="prop">
+			<label class="name" for="city"><g:message code="streetAddress.city.label" default="City" /></label>
+			<br/>
+			<span class="value">
+			  <g:textField name="city" maxlength="30" value="${streetAddressInstance?.city}" />
+			</span>
+		  </div>
+
+		  <div class="prop">
+			<label class="name" for="state"><g:message code="streetAddress.state.label" default="State" /></label>
+			<br/>
+			<span class="value">
+			  <g:textField name="state" size="3" maxlength="2" value="${streetAddressInstance?.state}" />
+			</span>
+		  </div>
+
+		  <div class="prop">
+			<label class="name" for="zipCode"><g:message code="streetAddress.zipCode.label" default="Zip Code" /></label>
+			<br/>
+			<span class="value">
+			  <g:textField name="zipCode" maxlength="5" size="7" value="${streetAddressInstance?.zipCode}" />
+			</span>
+			  -
+			<span class="value">
+			  <g:textField name="zip4" maxlength="4" size="5" value="${streetAddressInstance?.zip4}" />
+			</span>
+		  </div>
+		</fieldset>
+
+		<g:hiddenField name="country" value="${streetAddressInstance?.country}" />
+		<g:hiddenField name="zp4Certified" value="${streetAddressInstance?.zp4Certified}" />
+	  </div>
+
+	  <h1>Demo Alternate Output</h1>
+
+	  <div id="addressLookupResult">
+		<span id="z1Address">
+  ${zp4Address?.addressFinal}
+		</span>
+		<br/>
+		<span id="z1City">
+  ${zp4Address?.cityFinal}
+		</span>
+		  ,
+		<span id="z1State">
+  ${zp4Address?.stateFinal}
+		</span>
+
+		<span id="z1ZipCode">
+  ${zp4Address?.zipFinal}
+		</span>
+		&nbsp;
+		<span id="z1ZipFour">
+		</span>
+		<br/>
+		<span id="errorsOut">
+  ${zp4Address?.errorMessage}
+		</span>
+		<br/>
+		<span id="certifiedOut">
+  ${zp4Address?.certified}
+		</span>
+
+		<hr style="margin-top: 1.0em;" />
+
+		<h1>Demo Javascript Action Links and Buttons</h1>
+		<ul>
+		  <li>
+		  <g:addressLookupLink>Link via Tag Library Using Defaults</g:addressLookupLink>
+		  </li>
+		  <li>
+		  <g:addressLookupLink style="color: teal;">Link with style</g:addressLookupLink>
+		  </li>
+		  <li>
+		  <g:addressLookupButton id="addressLookupButton" addressOut="z1Address" cityOut="z1City" stateOut="z1State" zipCodeOut="z1ZipCode" zipFourOut="z1ZipFour" errorsOut="errorsOut" certifiedOut="certifiedOut" value="Button via Tag Library to Alternate Output" />
+		  </li>
+		  <li>
+		  <g:addressLookupButton class="fancyButton" value="Button with style" />
+		  </li>
+		</ul>
+
+	  </div>
+	</form>
+  </div>
+  </body>
+</html>

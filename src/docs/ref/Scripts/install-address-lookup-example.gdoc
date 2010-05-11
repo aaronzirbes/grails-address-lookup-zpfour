@@ -1,0 +1,31 @@
+h1. install-address-lookup-example
+
+h2. Purpose
+
+Creates a GSP page locted at grails-app/views/addressLookup/test.gsp to demonstrate the usage of the javascript tags within a GSP page to allow automatic address lookups.
+
+bc.
+   grails install-address-lookup-example
+
+
+h2. Description
+
+The sample page demonstrates the required head tags
+
+bc.
+	<g:setProvider library="jquery"/>
+	<g:javascript library="jquery"/>
+	<script type="text/javascript" src="${resource(file:'address-lookup-zp4.js', dir:'js', plugin:'address-lookup-zpfour')}" />
+
+It demonstrates creating an onChange trigger for a set of address form fields by putting the addressLookupOnChange tag in the head.
+
+bc.
+	<g:addressLookupOnChange />
+	
+It demonstrates the addressLookupLink and addressLookupButton tags.
+
+bc.
+	<g:addressLookupButton value="lookup address" />
+	<g:addressLookupLink> lookup address </g:addressLookupLink>
+
+

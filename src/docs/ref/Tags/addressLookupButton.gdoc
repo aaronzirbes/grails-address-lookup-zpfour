@@ -1,0 +1,72 @@
+h1. addressLookupOnChange
+
+h2. Purpose
+
+Creates a button that calls a jQuery function lookup an address.
+
+h2. Examples
+
+Lookup address from default form fields.
+
+{code:xml}
+<g:setProvider library="jquery"/>
+<html>
+	<head>
+		<title>Some Page</title>
+		<g:javascript library="jquery"/>
+		<script type="text/javascript" src="${resource(file:'address-lookup-zp4.js', dir:'js', plugin:'address-lookup-zpfour')}" />
+	</head>
+	<body>
+		<form>
+		...
+		<g:textField name="address"><br/>
+		<g:textField name="city">		
+		<g:textField name="state">		
+		<g:textField name="zipCode">		
+		
+		 <g:addressLookupButton value="Lookup this address" />
+		...
+		</form>
+	</body>
+</html>
+{code}
+
+Automatically lookup non-default form fields.
+
+{code:xml}
+...
+	<g:addressLookupButton address="addressIn" city="cityIn"
+		state="stateIn" zipCode="zipCodeIn" addressOut="z1Address" 
+		cityOut="z1City" stateOut="z1State" 
+		zipCodeOut="z1ZipCode" zipFourOut="z1ZipFour" 
+		errorsOut="errorsOut" certifiedOut="certifiedOut"
+		value="Lookup this address" />
+...
+{code}
+
+
+Add style to the button
+
+{code:xml}
+...
+	<g:addressLookupButton style="background-color: blue;" value="Lookup this address" />		
+...
+{code}
+
+h2. Description
+
+Attributes
+
+* @address@ (optional) - the input field name for the address line, the default is _address_
+* @city@ (optional) - the input field name for the city, the default is _city_
+* @state@ (optional) - the input field name for the state, the default is _state_
+* @zipCode@ (optional) - the input field name for the zip code, the default is _zipCode_
+* @addressOut@ (optional) - the output field name or element id for the address line, the default is _address_
+* @cityOut@ (optional) - the output field name or element id for the city, the default is _city_
+* @stateOut@ (optional) - the output field name or element id for the state, the default is _state_
+* @zipCodeOut@ (optional) - the output field name or element id for the zip code, the default is _zipCode_
+* @zipFourOut@ (optional) - the output field name or element id for the plus four zipcode, the default is _zip4_
+* @certifiedOut@ (optional) - the output field name or element id for the certified result, the default is _certifiedOut_
+* @errorsOut@ (optional) - the output element id for the error message, the default is _errorsOut_
+* @allowAddressLookup@ (optional) - the checkbox field name to enable/disable the lookup javascript
+

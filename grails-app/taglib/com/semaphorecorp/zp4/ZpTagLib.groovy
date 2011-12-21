@@ -17,6 +17,7 @@ class ZpTagLib {
 	]
 
 	def addressLookupLink = { attrs, body ->
+		if (!attrs) { attrs = [:] }
 
 		out << '<a href="#"'
 		// print out any passed keys that aren't parameters
@@ -39,7 +40,9 @@ class ZpTagLib {
 		out << "');\">" << body() << "</a>"
 	}
 
-	def addressLookupButton = { attrs, body ->
+	def addressLookupButton = { attrs ->
+
+		if (!attrs) { attrs = [:] }
 
 		out << '<input type="button"'
 		// print out any passed keys that aren't parameters
@@ -62,7 +65,8 @@ class ZpTagLib {
 
 	}
 
-	def addressLookupOnChange = { attrs, body ->
+	def addressLookupOnChange = { attrs ->
+		if (!attrs) { attrs = [:] }
 
 		out << '<script type="text/javascript">\n'
 		out << '$(document).ready(function() {\n'

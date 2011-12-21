@@ -3,8 +3,9 @@ h2. Service and Groovy classes
 The @com.semaphore.zp4.AddressService@ service, and @com.semaphore.zp4.StreetAddress@ and @com.semaphore.zp4.Zp4Address@ classes should work after setting up the @Config.groovy@ file.
 
 h2. Tags
-
-In order to use the tags, you need to include the following in the <head> section of your GSP pages.  This can optionally be put in your @views/layouts/main.gsp@ (or whatever layout you are using).
+{note}
+In order to use the tags, you need need to install the _jquery_ plugin. Then you will need to include the following in the <head> section of your GSP pages.  This can optionally be put in your @views/layouts/main.gsp@ (or whatever layout you are using).
+{note}
 
 The required items are the following two lines
 

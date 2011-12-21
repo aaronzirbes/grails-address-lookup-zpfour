@@ -1,5 +1,9 @@
 h2. Tag examples
 
+{note}
+In order to use the tags, you need need to install the _jquery_ plugin.
+{note}
+
 You may install an example GSP page to demonstrate the tags by running the command
 
 {code}

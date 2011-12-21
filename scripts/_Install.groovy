@@ -31,15 +31,16 @@ def appDir = GrailsResourceUtils.GRAILS_APP_DIR
 def configFile = new File(appDir, 'conf/Config.groovy')
 
 if (configFile.exists()) {
-	ant.echo "Updating Config..."
-	configFile.withWriterAppend {
-		it.writeLine '\n// Added by the Address Lookup ZP4 Plugin:'
-		it.writeLine "//grails.plugins.addressLookupZpfour.server = 'http://zp4.intranet.example.com/'"
-		it.writeLine "grails.plugins.addressLookupZpfour.server = 'http://localhost:80/'"
+	def settingFound = false
+	configFile.eachLine{ line ->
+		if (line =~ '.*grails.plugins.addressLookupZpfour.server.*') { settingFound = true }
 	}
-}
-
-ant.echo """
+	if ( ! settingFound ) {
+		configFile.withWriterAppend {
+			it.writeLine '\n// Added by the Address Lookup ZP4 Plugin:'
+			it.writeLine "//grails.plugins.addressLookupZpfour.server = 'http://zp4.intranet.example.com/'"
+		}
+		ant.echo """
 	***********************************************************
 	*                       IMPORTANT                         *
 	*                                                         *
@@ -49,4 +50,7 @@ ant.echo """
 	* parameter to point to your internal ZP4 HTTPSERV server *
     ***********************************************************
 """
+	}
+}
+
 

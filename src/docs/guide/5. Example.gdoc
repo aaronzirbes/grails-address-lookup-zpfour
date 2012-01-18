@@ -14,10 +14,10 @@ h2. Code Examples
 
 You can create an address, look it up, and get information about the lookup by using the following code.
 
-The @StreetAddress.lookup()@ method uses the com.semaphore.zp4.AddressService to look up the address, and return an instance of a com.semaphore.zp4.Zp4Address that contains the lookup result and some error message information.
+The @StreetAddress.lookup()@ method uses the com.semaphorecorp.zp4.AddressService to look up the address, and return an instance of a com.semaphorecorp.zp4.Zp4Address that contains the lookup result and some error message information.
 
 {code}
-import com.semaphore.zp4.*
+import com.semaphorecorp.zp4.*
 
 def streetAddressInstance  = new StreetAddress(
 	        address: '176 N. Mississippi River Boulevard',
@@ -59,7 +59,7 @@ in @BootStrap.groovy@
 com.mycompany.Customer.metaClass.cleanUp = {->
 	Integer z = 0
 	z = Integer.parse(delegate.zipcode)
-	def a1 = new com.semaphore.zp4.StreetAddress(address: delegate.addressLine,
+	def a1 = new com.semaphorecorp.zp4.StreetAddress(address: delegate.addressLine,
 			city: delegate.city,
 			state: delegate.stateAbbreviation,
 			zipCode: z )

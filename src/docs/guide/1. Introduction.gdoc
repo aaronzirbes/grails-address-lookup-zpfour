@@ -1,4 +1,0 @@
-The Address Lookup ZP4 plugin adds address lookup support to clean and verify US address within a grails application by using simple GSP tags.  It depends on the jQuery plugin for the tags as it uses jQuery Javascript.
-
-This plugin also requires that you have a ZP4 HTTPSERV server running on your local intranet that your grails application can see.  This guide will cover setting up the ZP4 HTTPSERV that is included on the ZP4 DVD-ROM that you get from Semaphore corporation.
-

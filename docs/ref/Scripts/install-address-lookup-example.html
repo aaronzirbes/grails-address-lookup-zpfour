@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Provides plugin-interface to Address Lookups via a Semaphore ZP4 HTTPSERV 0.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass(el) {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/theZP4HTTPServer.html"><strong>2</strong><span>The ZP4 HTTP Server</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/installation.html"><strong>3</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/configuration.html"><strong>4</strong><span>Configuration</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/example.html"><strong>5</strong><span>Example</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Provides address lookup service and tags so you can easily 
+	add address lookups to your web app if you have a ZP4 HTTPSERV service from Semaphore corp running on your network.</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="reference corner-all">
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                <h1>install-address-lookup-example</h1><p class="paragraph"/><h2>Purpose</h2><p class="paragraph"/>Creates a GSP page locted at grails-app/views/addressLookup/test.gsp to demonstrate the usage of the javascript tags within a GSP page to allow automatic address lookups.<p class="paragraph"/><pre class="bq"><code>
+   grails install-address-lookup-example</code></pre><p class="paragraph"/>
+<h2>Description</h2><p class="paragraph"/>The sample page demonstrates the required head tags<p class="paragraph"/><pre class="bq"><code>
+	&#60;g:setProvider library="jquery"/&#62;
+	&#60;g:javascript library="jquery"/&#62;
+	&#60;script type="text/javascript" src="${resource(file:'address-lookup-zp4.js', dir:'js', plugin:'address-lookup-zpfour')}" /&#62;</code></pre><p class="paragraph"/>It demonstrates creating an onChange trigger for a set of address form fields by putting the addressLookupOnChange tag in the head.<p class="paragraph"/><pre class="bq"><code>
+	&#60;g:addressLookupOnChange /&#62;<p class="paragraph"/>It demonstrates the addressLookupLink and addressLookupButton tags.</code></pre><p class="paragraph"/><pre class="bq"><code>
+	&#60;g:addressLookupButton value="lookup address" /&#62;
+	&#60;g:addressLookupLink&#62; lookup address &#60;/g:addressLookupLink&#62;</code></pre><p class="paragraph"/>
+
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                    <div class="menu-block">
+                        <h1 class="menu-title" onclick="toggleRef(nextElement(this))">Scripts</h1>
+                        <div class="menu-sub selected">
+                            
+                            
+                            <div class="menu-item"><a href="../../ref/Scripts/install-address-lookup-example.html">install-address-lookup-example</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="menu-block">
+                        <h1 class="menu-title" onclick="toggleRef(nextElement(this))">Tags</h1>
+                        <div class="menu-sub">
+                            
+                            
+                            <div class="menu-item"><a href="../../ref/Tags/addressLookupButton.html">addressLookupButton</a>
+                            </div>
+                            
+                            <div class="menu-item"><a href="../../ref/Tags/addressLookupLink.html">addressLookupLink</a>
+                            </div>
+                            
+                            <div class="menu-item"><a href="../../ref/Tags/addressLookupOnChange.html">addressLookupOnChange</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+
+<script type="text/javascript" src="../../js/docs.js"></script>
+
+</body>
+</html>

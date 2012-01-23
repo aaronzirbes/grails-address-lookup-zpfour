@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>2 The ZP4 HTTP Server 0.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/theZP4HTTPServer.html"><strong>2</strong><span>The ZP4 HTTP Server</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/installation.html"><strong>3</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/configuration.html"><strong>4</strong><span>Configuration</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/example.html"><strong>5</strong><span>Example</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Provides address lookup service and tags so you can easily 
+	add address lookups to your web app if you have a ZP4 HTTPSERV service from Semaphore corp running on your network.</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+                    <div class="toc-item next-right"><a href="../guide/installation.html"><strong>3</strong><span>Installation</span> >></a></div>
+                
+
+
+                <div class="project">
+                    <h1>2 The ZP4 HTTP Server - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Aaron J. Zirbes</p>
+
+                    <p><strong>Version:</strong> 0.1.2</p>
+
+                    
+                </div>
+
+                
+
+                
+
+<h1 id="theZP4HTTPServer">2 The ZP4 HTTP Server</h1>
+<h1>Setting up the ZP4 HTTP Server</h1><p class="paragraph"/>This section will guide you through setting up the ZP4 HTTPSERV process to serve up the ZP4 web service.<p class="paragraph"/><h2>Install ZP4</h2><p class="paragraph"/>This guide does not cover installation of the ZP4 software, please refer to Semaphore's web site if you need help installing ZP4 from the DVD-ROM.<p class="paragraph"/><h2>The INI file</h2><p class="paragraph"/>The following is a sample INI file named <code>C:&#72;TTPSERV&#72;TTPSERV.ini</code> . You'll need to modify the  <em class="italic">clients</em>  section to make sure your Grails development and production servers can see this address.  You may also want to register the ZP4 server in DNS so you can just call it something like <code>zp4.intranet.example.com</code> .<p class="paragraph"/><div class="code"><pre>&#91;clients&#93;
+1=192.168.1.&#42;
+2=127.0.0.1<p class="paragraph"/>&#91;options&#93;
+port=80
+format=XML<p class="paragraph"/>&#91;outputs&#93;
+1=Certified
+2=Address (<span class="java&#45;keyword">final</span>)
+3=Address line 2 (<span class="java&#45;keyword">final</span>)
+4=Address leftovers
+5=Barcode digits
+6=City (<span class="java&#45;keyword">final</span>)
+7=City (preferred)
+8=Urbanization (<span class="java&#45;keyword">final</span>)
+9=State (<span class="java&#45;keyword">final</span>)
+10=ZIP (<span class="java&#45;keyword">final</span>)
+11=Errors (binary)
+12=Error numbers (detailed)
+13=Error message</pre></div><p class="paragraph"/><h2>The Start-up Command</h2><p class="paragraph"/>The following command will start up your HTTPSERV, you can create a shortcut with this command in it and put it in the Startup folder in the Start Menu if you wish.  It needs to be run from the <code>C:&#90;P4</code> folder.<p class="paragraph"/><div class="code"><pre>C:&#90;P4&#72;TTPSERV.EXE C:&#72;TTPSERV&#72;TTPSERV.INI</pre></div><p class="paragraph"/><h2>Done!</h2><p class="paragraph"/>You should now be able to fire up the ZP HTTP Server.  You can test it by opening a web browser to the IP address or DNS name of the server.  If it works, you should see a simple submit form.<p class="paragraph"/>
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+                    <div class="toc-item next-right"><a href="../guide/installation.html"><strong>3</strong><span>Installation</span> >></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                    <div class="menu-block"><h1 class="menu-title" onclick="toggleRef(this.parentNode.childNodes[1])">Scripts</h1><div class="menu-sub">
+                        
+                            
+                            <div class="menu-item"><a href="../ref/Scripts/install-address-lookup-example.html">install-address-lookup-example</a>
+                            </div>
+                            
+                            </div>
+                    </div>
+                    
+                    <div class="menu-block"><h1 class="menu-title" onclick="toggleRef(this.parentNode.childNodes[1])">Tags</h1><div class="menu-sub">
+                        
+                            
+                            <div class="menu-item"><a href="../ref/Tags/addressLookupButton.html">addressLookupButton</a>
+                            </div>
+                            
+                            <div class="menu-item"><a href="../ref/Tags/addressLookupLink.html">addressLookupLink</a>
+                            </div>
+                            
+                            <div class="menu-item"><a href="../ref/Tags/addressLookupOnChange.html">addressLookupOnChange</a>
+                            </div>
+                            
+                            </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>
